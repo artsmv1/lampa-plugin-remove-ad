@@ -6,11 +6,15 @@
         version: "0.0.1",
         name: "Удаление рекламы",
         description: "Плагин для удаление рекламы перед фильмом",
-        component: "stats",
+        component: "RAd",
     };
 
     function startPlugin() {
+        console.log('RAd: startPlugin(): 1');
+        if (window.lampa_plugin_remove_ad) return;
+        console.log('RAd: startPlugin(): 2');
 
+        window.lampa_plugin_remove_ad = true;
         Lampa.Manifest.plugins = manifest;
 
         // not used currently
@@ -71,6 +75,8 @@
 
 
 
+    startPlugin();
+    /*
     if (window.appready) {
         try {
             console.log('RAd: Starting the plugin... 1a');
@@ -87,4 +93,5 @@
             }
         });
     }
+    */
 })();
